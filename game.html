@@ -4,291 +4,48 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Prepare for Trouble!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
-    <audio autoplay loop>
-        <source src="assets/audio/battle.mp3" type="audio/mp3"/>
-    </audio>
-    <div class="container-fluid" id="background">
-        <!-- rocket bench div -->
-        <div class="rocketBench position-absolute">
-            <!-- rocket progress bars -->
-            <div class="progress position-relative" id="rocketProgressBarGroup">
-                <div class="progress-bar bg-success position-relative" id="dittoHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                    aria-valuemin="0" aria-valuemax="100">100%</div>
-                <div class="progress-bar bg-success position-relative" id="weepinbellHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                    aria-valuemin="0" aria-valuemax="100">100%</div>
-                <div class="progress-bar bg-success position-relative" id="meowthHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                    aria-valuemin="0" aria-valuemax="100">100%</div>
+    <div class="container background">
+        <div class="row">
+            <div class="col-xs-4 bg-primary">
+                <h1>PokiPoints!</h1>
             </div>
         </div>
-        <div class="row" id="topRow">
-            <!-- rocket character -->
-            <div class="col-md-3">
-                <img src="assets/images/Rocket.jpg" alt="Team Rocket" class="rounded">
-            </div>
-            <!-- rocket reserve pokemon-->
-            <div class="col-md-9">
-                <img src="assets/images/Meowth.png" alt="Meowth" class="rounded float-right pokemon" id="meowth">
-                <img src="assets/images/Weepinbell.png" alt="Weepinbell" class="rounded float-right pokemon" id="weepinbell">
-                <img src="assets/images/Ditto.png" alt="Ditto" class="rounded float-right pokemon" id="ditto">
-            </div>
-        </div>
-        <div class="row position-relative activeRow" id="rocketActiveRow">
-            <div class="col-md-7">
-                <!-- rocket active pokemon -->
-                <div class="activeDiv text-center float-right" id="rocketActiveDiv"></div>
-                <!-- rocket active pokemon stats -->
-                <div class="activePokemonStatus float-right" id="rocketActivePokemonStatus">
-                    <div class="progress-bar bg-success" i role="progressbar" style="width:100px" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                    <h5 class="activeHealthTotal ">hp:
-                        <b>500/500</b>
-                    </h5>
-                </div>
-            </div>
-            <!-- action/move log -->
-            <div class="col-md-3">
-                <div class="actionLog"></div>
+        <div class="row">
+            <div class="col-md-6" id=:"#descriptionBox">
+                <p>You will be given a random number at the start of the game.</p>
+                <p>THere are four pokemon below. By clicking on a pokemon, you will add a specific amount of points to your
+                    total.</p>
+                <p>You win the game by matching your total score to random number, you lose the game if your total score goes
+                    above the random number.</p>
+                <p>The value of each pokemon is hedden from you until you click on it.</p>
+                <p>Each time when the game starts, the game will change the values of each crystal.</p>
             </div>
         </div>
-        <br>
-        <!-- player active pokemon -->
-        <div class="row position-relative activeRow" id="playerActiveRow">
-            <div class="col-md-7">
-                <div class="activeDiv text-center float-right" id="droppable">
-                </div>
-                <!-- player active pokemon stats -->
-                <div class="activePokemonStatus float-right" id="playerActivePokemonStatus">
-                    <div class="progress-bar bg-success" i role="progressbar" style="width:100px" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                    <h5 class="activeHealthTotal ">hp:
-                        <b>500/500</b>
-                    </h5>
+        <div class="row">
+            <div class="col-md-auto"> </div>
+                <div class="row">
+
                 </div>
             </div>
-            <!-- attack buttons -->
-            <div class="col-md-3">
-                <div class="row buttonRow text-center" id="topButtons">
-                    <button type="button" class="btn" id="attack-1">lightning</button>
-                    <button type="button" class="btn" id="attack-2">shock</button>
-                </div>
-                <div class="row buttonRow text-center" id="bottomButtons">
-                    <button type="button" class="btn" id="attack-3">slash</button>
-                    <button type="button" class="btn" id="attack-4">dig</button>
-                </div>
-                <!-- attack description -->
-                <div class="textbox" id="attackDescription"></div>
-            </div>
-        </div>
-        <!-- player character -->
-        <div class="row position-absolute" id="trainerRow">
-            <div class="col-md-3" id="trainer">
-                <img src="assets/images/Trainer.png" alt="Ash Kechum" class="rounded">
-            </div>
-            <!-- player Bench div-->
-            <div class="playerBench position-absolute">
-                <!-- player progress bars -->
-                <div class="progress position-relative" id="playerProgressBarGroup">
-                    <div class="progress-bar bg-success position-relative" id="pikachuHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100">100%</div>
-                    <div class="progress-bar bg-success position-relative" id="charmanderHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100">100%</div>
-                    <div class="progress-bar bg-success position-relative" id="bulbasaurHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100">100%</div>
-                    <div class="progress-bar bg-success position-relative" id="squirtleHealth" role="progressbar" style="width:100px" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100">100%</div>
-                </div>
-            </div>
-            <!-- player reserve pokemon-->
-            <div class="col-md-9 position-absolute" id="playerRoster">
-                <img src="assets/images/Squirtle.png" alt="Squirtle" class="rounded float-right pokemon draggable" id="4">
-                <img src="assets/images/Bulbasaur.png" alt="Bulbasaur" class="rounded float-right pokemon draggable" id="3">
-                <img src="assets/images/Charmander.png" alt="Charmander" class="rounded float-right pokemon draggable" id="2">
-                <img src="assets/images/Pikachu.png" alt="Pikachu" class="rounded float-right pokemon draggable" id="1">
-            </div>
-        </div>
-    </div>
-    <style>
-        .actionLog {
-            width: 500px;
-            height: 200px;
-            background: white;
-            opacity: 1;
-            position: relative;
-            top: 3vh;
-            right: 1vh;
-            border: solid;
-            border-color: black;
-
-        }
-
-        #attackDescription {
-            width: auto;
-            height: 80px;
-            background: white;
-            opacity: 1;
-            position: relative;
-            top: .5vh;
-            right: 1vh;
-            border: solid;
-            border-color: black;
-            display: none;
-
-        }
-
-        #rocketProgressBarGroup {
-            background-color: blue;
-            top: 88%;
-        }
-
-        #dittoHealth {
-            left: 20%;
-        }
-
-        #weepinbellHealth {
-            left: 40%;
-        }
-
-        #meowthHealth {
-            left: 57%;
-        }
-
-        #playerProgressBarGroup {
-            background-color: blue;
-            top: 85%;
-        }
-
-        #pikachuHealth {
-            left: 2%;
-        }
-
-        #charmanderHealth {
-            left: 14%;
-        }
-
-        #bulbasaurHealth {
-            left: 30%;
-        }
-
-        #squirtleHealth {
-            left: 44%;
-        }
 
 
-        #trainerRow {
-            bottom: 1em;
-            left: 1vh;
-            right: 1vh;
-        }
-
-        #playerRoster {
-            bottom: 2vh;
-            right: 0;
-        }
-
-        #background {
-            background: url("assets/images/bg.jpg");
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            height: 102vh;
-        }
-
-        .activeDiv {
-            width: 210px;
-            height: 210px;
-            float: right;
-            border-style: groove;
-            border-color: black;
-            background-color: beige;
-        }
-
-        .activeRow {
-            right: 3em;
-        }
-
-        .activePokemonStatus {
-            position: relative;
-            right: 1.5em;
-            top: 1em;
-        }
-
-        .pokemon {
-            margin: 0 10px 0 10px;
-        }
-
-        .playerBench {
-            width: 800px;
-            height: 280px;
-            right: 0vh;
-            bottom: -4vh;
-            background: blue;
-            border: black;
-            border-style: solid;
-            border-width: 5px;
-        }
-
-        .rocketBench {
-            width: 800px;
-            height: 280px;
-            right: 0vh;
-            top: -3.5vh;
-            background: blue;
-            border: black;
-            border-style: solid;
-            border-width: 5px;
-        }
-
-        .btn {
-            margin: .5vh;
-            width: 10em;
-            border: solid;
-            border-color: black;
-        }
-
-        .speech-bubble {
-            position: relative;
-            background: #868686;
-            border-radius: .4em;
-        }
-
-        .speech-bubble:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 14px solid transparent;
-            border-right-color: #868686;
-            border-left: 0;
-            border-bottom: 0;
-            margin-top: -7px;
-            margin-left: -14px;
-        }
-
-        body {
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
-    </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-    </script>
-
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/javascript/game.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+                crossorigin="anonymous"></script>
+            <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
