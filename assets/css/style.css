@@ -1,5 +1,13 @@
+
 #descriptionBox {
     background-color:orange;
-    border-width:2%;
-    border-style:solid;
+    border:solid;
+    border-color:black;
+}
+#background {
+    height:100vh;
+    background: url("../images/background.jpg");
+}
+.rowThree{
+    margin: 0 1em 0 1em;
 }

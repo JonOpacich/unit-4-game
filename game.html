@@ -4,48 +4,67 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>PokePoints!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <script src="assets/javascript/game.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
 <body>
-    <div class="container background">
-        <div class="row">
-            <div class="col-xs-4 bg-primary">
-                <h1>PokiPoints!</h1>
+    <div class="container-fluid" id="background">
+        <div class="row justify-content-center">
+            <div class="col-xl-4">
+                <img src="assets/images/Pokepoints.jpeg" />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6" id=:"#descriptionBox">
+        <div class="row  justify-content-center">
+            <div class="col-md-6" id="descriptionBox">
                 <p>You will be given a random number at the start of the game.</p>
-                <p>THere are four pokemon below. By clicking on a pokemon, you will add a specific amount of points to your
-                    total.</p>
+                <p>There are four pokemon below. By clicking on a pokemon, you will add a specific amount of points to your
+                    total.
+                </p>
                 <p>You win the game by matching your total score to random number, you lose the game if your total score goes
                     above the random number.</p>
-                <p>The value of each pokemon is hedden from you until you click on it.</p>
+                <p>The value of each pokemon is hidden from you until you click on it.</p>
                 <p>Each time when the game starts, the game will change the values of each crystal.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-auto"> </div>
-                <div class="row">
+        <div class="row justify-content-center rowThree">
+            <div class="col-xs-3 bg-secondary rowThree text-center">
+                <h3 id="randomNumber">Make this number:
+                    <br>0</h3>
+            </div>
+            <div class="col-xs-2 bg-secondary">
+                <h4 id="wins">Wins: 0</h4>
+                <h4 id="losses">Losses: 0</h4>
+            </div>
 
-                </div>
+        </div>
+        <div class="row justify-content-center pokemonRow">
+            <img src="assets/images/Squirtle.png" alt="Squirtle" class="img-fluid float-right pokemon draggable" id="Squirtle">
+            <img src="assets/images/Bulbasaur.png" alt="Bulbasaur" class="img-fluid float-right pokemon draggable" id="Bulbasaur">
+            <img src="assets/images/Charmander.png" alt="Charmander" class="img-fluid float-right pokemon draggable" id="Charmander">
+            <img src="assets/images/Pikachu.png" alt="Pikachu" class="img-fluid float-right pokemon draggable" id="Pikachu">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 bg-primary text-center">
+                <h4 id="scoreTotal">total score: 0</h4>
+
             </div>
 
 
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-                crossorigin="anonymous"></script>
-            <script src="assets/javascript/game.js"></script>
+        </div>
+
+
+
+        <script src="assets/javascript/game.js" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
